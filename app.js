@@ -1,1 +1,1 @@
-console.log("Script is running :)");
+alert("This app works :)")
