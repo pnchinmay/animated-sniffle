@@ -4,7 +4,11 @@ var outputDiv = document.querySelector("#output")
 
 const text = txtInput.value;
 
-var url = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json?text=" + text
+
+function errorHandler(error) {
+    console.log(error);
+    alert("Something wrong with the server :(\nTry again after some time")
+}
 
 // Method - 1
 // fetch(url)
@@ -22,15 +26,16 @@ var url = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json?text=" 
 function clickEventHandler() {
     const text = txtInput.value;
 
-    var url = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json?text=" + text
+    // var url = "https://api.funtranslations.com/translate/yoda.json?text=" + text
+    var url = "https://lessonfourapi.pnchinmay.repl.co/translate/yoda.json?text=" + text
 
     // outputDiv.innerText = "banana " + txtInput.value;
 
     // Method - 1 -- easier way
     fetch(url)
         .then(response => response.json())
-        .then(json => outputDiv.innerText = JSON.stringify(json.contents.translated))
-        .then(json => console.log(json))
+        .then(json => console.log(json.contents.translated))
+        .catch(errorHandler)
 
     // Method - 2
     // fetch(url)
