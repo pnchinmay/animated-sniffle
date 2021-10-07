@@ -29,7 +29,8 @@ function clickEventHandler() {
     // Method - 1 -- easier way
     fetch(url)
         .then(response => response.json())
-        .then(json => outputDiv.innerText = JSON.stringify(json))
+        .then(json => outputDiv.innerText = JSON.stringify(json.contents.translated))
+        .then(json => console.log(json))
 
     // Method - 2
     // fetch(url)
