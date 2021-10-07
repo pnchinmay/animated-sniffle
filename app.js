@@ -26,26 +26,29 @@ function errorHandler(error) {
 function clickEventHandler() {
     const text = txtInput.value;
 
-    // var url = "https://api.funtranslations.com/translate/yoda.json?text=" + text
-    var url = "https://lessonfourapi.pnchinmay.repl.co/translate/yoda.json?text=" + text
+    var url = "https://api.funtranslations.com/translate/minion.json?text=" + text
+    // var url = "https://lessonfourapi.pnchinmay.repl.co/translate/yoda.json?text=" + text
 
     // outputDiv.innerText = "banana " + txtInput.value;
 
     // Method - 1 -- easier way
     fetch(url)
         .then(response => response.json())
-        .then(json => console.log(json.contents.translated))
+        .then(json => {
+            outputDiv.innerText = json.contents.translated;
+            console.log(json.contents.translated)
+        })
         .catch(errorHandler)
 
     // Method - 2
     // fetch(url)
     //     .then(function responseHandler(response) {
     //         return response.json()
-    //     })
-    //     .then(function logJSON(json) {
-    //         outputDiv.innerText = JSON.stringify(json);
-    //         console.log(json)
-    //     })
+        // })
+        // .then(function logJSON(json) {
+        //     outputDiv.innerText = json.contents.translated;
+        //     console.log(json)
+        // })
 }
 
 btnTranslate.addEventListener("click", clickEventHandler);
