@@ -25,6 +25,14 @@ body {
     margin: 0;
 }
 
+main {
+    width: 100%;
+    max-width: var(--primary-width);
+    box-sizing: border-box;
+    margin: auto;
+    padding: 1rem;
+}
+
 button {
     background-color: var(--primary-color);
     display: block;
@@ -36,18 +44,18 @@ button {
     appearance: auto;
 }
 
+
 textarea {
     display: block;
-    max-width: var(--primary-width);
-    border: black solid 2px;
-    padding: 1rem 2rem;
-    margin: 1rem 0rem;
+    border: black solid 1px;
     font-family: 'Kalam', cursive;
+    margin-top: 2rem;
     font-size: large;
-    appearance: auto;
     width: 100%;
-    min-height: 15vh;
+    max-width: var(--primary-width);
+    min-height: 20vh;
     text-align: left;
+    box-sizing: border-box;
 }
 
 p {
@@ -67,6 +75,7 @@ p {
     min-height: 10vh;
     max-height: 20vh;
     text-align: left;
+    box-sizing: border-box;
 }
 
 .footer {
