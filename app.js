@@ -7,6 +7,7 @@ btnTranslate.addEventListener("click", clickEventHandler);
 function clickEventHandler() {
     const text = textInp.value;
     var url = "https://api.funtranslations.com/translate/minion.json?text=" + text;
+    // var url = "https://lessonfourapi.pnchinmay.repl.co/translate/yoda.json?text=" + text
     console.log(text)
 
     fetch(url)
