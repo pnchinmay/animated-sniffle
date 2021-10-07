@@ -2,11 +2,12 @@
 
 :root {
     --primary-color: #f2c946;
+    --primary-width: 600px;
 }
 
 body {
     font-family: 'Kalam', cursive;
-     */margin: 0px;
+     */margiauto0px;
 }
 
 button {
@@ -18,6 +19,34 @@ button {
     font-family: 'Kalam', cursive;
     font-size: large;
     appearance: auto;
+}
+
+textarea {
+    display: block;
+    max-width: var(--primary-width);
+    border: black solid 2px;
+    padding: 1rem 2rem;
+    margin: 1rem 0rem;
+    font-family: 'Kalam', cursive;
+    font-size: large;
+    appearance: auto;
+    width: 100%;
+    min-height: 15vh;
+    text-align: left;
+}
+
+#txtOutput {
+    display: block;
+    max-width: var(--primary-width);
+    border: black solid 1px;
+    padding: 1rem 2rem;
+    font-family: 'Kalam', cursive;
+    font-size: large;
+    appearance: auto;
+    width: 100%;
+    min-height: 10vh;
+    max-height: 20vh;
+    text-align: left;
 }
 
 hr {
@@ -123,10 +152,12 @@ hr {
 
 .footer {
     background-color: var(--primary-color);
+    position: fixed;
+    bottom: 0;
     padding: 2rem 1rem;
     text-align: center;
-    color: white;
-    border-top-right-radius: 1rem;
+    color: black;
+    margin-block-start: 1em;
 }
 
 .social-link {
