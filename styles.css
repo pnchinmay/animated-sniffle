@@ -78,6 +78,8 @@ p {
     box-sizing: border-box;
 }
 
+/* Footer style */
+
 .footer {
     background-color: var(--primary-color);
     position: fixed;
