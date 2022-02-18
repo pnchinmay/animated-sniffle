@@ -28,6 +28,7 @@ body {
     margin: 0;
 }
 
+/* main content */
 main {
     width: 100%;
     max-width: var(--primary-width);
