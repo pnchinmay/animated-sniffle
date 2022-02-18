@@ -34,6 +34,8 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Echo PR_AUTHOR
         run: echo @$PR_AUTHOR
+
+      - name: Echo GITHUB_CONTEXT
         run: echo "$GITHUB_CONTEXT"
