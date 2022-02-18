@@ -1,0 +1,22 @@
+name: "Greet With A Random Joke"
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  test:
+    name: setup environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: mast joke mara
+        uses: deep5050/MastJokeMara@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          issue_msg: |
+            Hi, {{author}} here is a joke for you 
+            {{joke}}
+          
+
+          
