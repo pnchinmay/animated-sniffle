@@ -1,15 +1,17 @@
 name: "Greet With A Random Joke"
 on:
   issues:
-    types: [opened]
-  pull_request_target:
-    types: [opened]
+    types: [opened, reopened]
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
   test:
     name: setup environment
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
       - name: mast joke mara
         uses: deep5050/MastJokeMara@main
         with:
@@ -17,6 +19,3 @@ jobs:
           issue_msg: |
             Hi, {{author}} here is a joke for you 
             {{joke}}
-          
-
-          
