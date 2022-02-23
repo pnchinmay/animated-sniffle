@@ -21,8 +21,6 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    env:
-      PR_AUTHOR: ${{ github.event.pull_request.actor }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -34,8 +32,20 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Echo PR_AUTHOR
-        run: echo @$PR_AUTHOR
-
-      - name: Echo GITHUB_CONTEXT
-        run: echo "$GITHUB_CONTEXT"
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+  greeting:
+    runs-on: ubuntu-latest
+    env:
+      PR_AUTHOR: ${{ github.event.pull_request.actor }}
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Hey $PR_AUTHOR, thanks for opening your issue. Someone will reply soon.'
+        pr-message: 'Hey @$PR_AUTHOR, thanks for opening your Pull Request. Someone will review it soon.'
