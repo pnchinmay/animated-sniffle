@@ -40,10 +40,15 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PR_AUTHOR: ${{ github.event.pull_request.actor }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
     permissions:
       issues: write
       pull-requests: write
     steps:
+    - name: view the PR number
+        run: |
+          echo "PR number = ${{ github.event.pull_request.number }}"
+          echo "PR number = ${{ env.PR_NUMBER }}"
     - uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
