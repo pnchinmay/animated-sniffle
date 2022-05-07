@@ -31,8 +31,6 @@ jobs:
       - name: greeting2
         uses: actions/github-script@v2
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          issue-number: ${{ toJson(github.event.pull_request.number) }}
           script: |
             github.issues.createComment({
               owner: context.repo.owner,
