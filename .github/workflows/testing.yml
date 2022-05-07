@@ -30,7 +30,7 @@ jobs:
         echo "PR number = ${{ github.event.pull_request.number }}"
         echo "PR number = ${{ env.PR_NUMBER }}"
         
-    - name: greeting2:
+    - name: greeting2
       uses: actions/github-script@v2
       permissions:
         issues: write
