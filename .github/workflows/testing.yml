@@ -1,4 +1,4 @@
-name: "Greetings"
+name: "Greetings for PR & ISSUES"
 on:
   issues:
     types: [opened, reopened]
@@ -32,7 +32,7 @@ jobs:
         uses: actions/github-script@v2
         with:
           script: |
-            github.issues.createComment({
+            github.pull_request.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: 'Hello World'
