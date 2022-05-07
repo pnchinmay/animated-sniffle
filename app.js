@@ -26,3 +26,4 @@ function errorHandler(error) {
     console.log(error);
     alert("Something wrong with the server :(\nPlease try again after sometime")
 }
+
