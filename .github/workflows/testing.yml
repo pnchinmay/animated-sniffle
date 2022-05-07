@@ -16,7 +16,6 @@ jobs:
     
     steps:
       - name: Run a one-line script
-        uses: actions/checkout@v2
         run: echo Hello, world!
 
       - name: Run a multi-line script
