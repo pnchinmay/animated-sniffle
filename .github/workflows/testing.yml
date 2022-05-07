@@ -1,5 +1,7 @@
-name: "Greetings for PR & ISSUES"
+name: "Greetings"
 on:
+  issue_comment:
+    types: [created, edited]
   issues:
     types: [opened, reopened]
   pull_request:
@@ -14,6 +16,7 @@ jobs:
     
     steps:
       - name: Run a one-line script
+        uses: actions/checkout@v2
         run: echo Hello, world!
 
       - name: Run a multi-line script
@@ -32,10 +35,10 @@ jobs:
         uses: actions/github-script@v2
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
+          issue-number: ${{ toJson(github.event.pull_request.number) }}
           script: |
             github.issues.createComment({
-              issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Hello World #$PR_NUMBER'
+              body: 'Hello World'
             })
