@@ -1,46 +1,43 @@
 name: "Greetings"
 on:
+  issue_comment:
+    types: [created, edited]
   issues:
     types: [opened, reopened]
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened]      
 
 jobs:
   build:
     runs-on: ubuntu-latest
-  steps:
-    - env:
+    env:
       PR_AUTHOR: ${{ github.event.pull_request.actor }}
       PR_NUMBER: ${{ github.event.pull_request.number }}
-      
-      
-    - name: Run a one-line script
-      uses: actions/checkout@v2
-      run: echo Hello, world!
+    
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
 
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
 
-    - name: view the PR number
-      run: |
-        echo $PR_NUMBER
-        echo $PR_AUTHOR
-        echo "PR number = ${{ github.event.pull_request.number }}"
-        echo "PR number = ${{ env.PR_NUMBER }}"
-        
-    - name: greeting2:
-      uses: actions/github-script@v2
-      permissions:
-        issues: write
-        pull-requests: write
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        issue-number: ${{ toJson(github.event.pull_request.number) }}
-        script: |
-          github.issues.createComment({
-          owner: context.repo.owner,
-          repo: context.repo.repo,
-          body: 'Hello World'
-        })
+      - name: view the PR number
+        run: |
+          echo $PR_NUMBER
+          echo $PR_AUTHOR
+          echo "PR number = ${{ github.event.pull_request.number }}"
+          echo "PR number = ${{ env.PR_NUMBER }}"
+          
+      - name: greeting2
+        uses: actions/github-script@v2
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          issue-number: ${{ toJson(github.event.pull_request.number) }}
+          script: |
+            github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Hello World'
+            })
