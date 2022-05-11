@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 
+/* css variables */
 :root {
     --primary-color: #0BAE04;
     --primary-width: 600px;
 }
 
+/* h1 styles */
 h1 {
     box-sizing: border-box;
     margin-block-start: 0em;
     margin-block-end: 0em;
 }
 
+/* navbar styles */
 nav {
     background-color: var(--primary-color);
     /* padding: 1rem 1rem; */
@@ -25,6 +28,7 @@ body {
     margin: 0;
 }
 
+/* main content */
 main {
     width: 100%;
     max-width: var(--primary-width);
@@ -78,6 +82,8 @@ p {
     box-sizing: border-box;
 }
 
+/* Footer style */
+
 .footer {
     background-color: var(--primary-color);
     position: fixed;
@@ -90,3 +96,5 @@ p {
     margin: auto;
     box-sizing: border-box;
 }
+
+ok
