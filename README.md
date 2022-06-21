@@ -12,6 +12,7 @@
 A fun translation web app that will translate your input to minion language. 
 Made with
 
+
  - HTML
  - CSS
  - JAVASCRIPT
